@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#btn').click(function(){
+					var inp_val=$("#one").val();
+					var tex_val=$("#two").val();
+					$.ajax({
+						url: "http://localhost:3000/users/insert",
+						type: "post",
+						data:{a:inp_val,b:tex_val},
+						success:function(e){
+							console.log(e)
+						}
+
+					});
+				})
+			})
+		</script>
+		<style type="text/css">
+			#one{
+				width: 400px;
+				height: 50px;
+				margin-bottom: 20px;
+			}
+			#two{
+				width: 400px;
+				height: 350px;
+				resize: none;
+				margin-bottom: 20px;
+			}
+			a{
+				color: #000000;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form>
+			<input type="text" placeholder="title" id="one" /><br>
+			<textarea name="" rows="" cols="" id="two"></textarea><br>
+			<button id="btn"><a href="../detail/index.html">提交</a></button>
+			
+		</form>
+	</body>
+
+</html>
